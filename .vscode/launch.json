@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-GoalShopApplication<GoalShop-1>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.poly.GoalShopApplication",
+            "projectName": "GoalShop-1",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
