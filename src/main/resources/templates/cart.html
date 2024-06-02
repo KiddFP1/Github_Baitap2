@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Giỏ hàng</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Giỏ hàng</h2>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Sản phẩm</th>
+                    <th>Giá</th>
+                    <th>Số lượng</th>
+                    <th>Điều chỉnh số lượng</th>
+                    <th>Tổng tiền</th>
+                    <th>Xóa khỏi giỏ</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="item : ${cartItems}">
+                    <td th:text="${item.product.name}">Tên sản phẩm</td>
+                    <td th:text="${item.product.price}">Giá</td>
+                    <td th:text="${item.quantity}">Số lượng</td>
+                    <td>
+                        <a th:href="@{/cart/increase(item.product.id)}" class="btn btn-primary">Tăng</a>
+                        <a th:href="@{/cart/decrease(item.product.id)}" class="btn btn-warning">Giảm</a>
+                    </td>
+                    <td th:text="${item.totalPrice}">Tổng tiền</td>
+                    <td>
+                        <a th:href="@{/cart/remove(item.product.id)}" class="btn btn-danger">Xóa</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div>
+            <h3>Tổng tiền: <span th:text="${totalPrice}">0.0</span></h3>
+            <form th:action="@{/cart/clear}" method="post" style="display: inline;">
+                <button type="submit" class="btn btn-warning">Xóa tất cả sản phẩm</button>
+            </form>
+            <a href="/cart/products" class="btn btn-primary" style="margin-left: 20px;">Tiếp tục mua sắm</a>
+        </div>
+    </div>
+</body>
+</html>
