@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<title>Categories Management</title>
+<style>
+body {
+}
+</style>
+</head>
+<body>
+	<div class="container" style="margin-top: 10px;">
+		<div class="row">
+			<div class="col-sm-12">
+				<form action="#" th:object="${Category}"
+					th:action="@{/category/index}" method="post">
+					<h2 class="text-center">Categories Management</h2>
+					<br>
+					<p th:text="${message}" class="text-center text-info"></p>
+					<div class="form-group">
+						<div class="mb-3">
+							<label for="exampleInputEmail1" class="form-label text-uppercase">Category
+								ID </label> <input class="form-control" th:field="*{id}">
+							<div class="text-danger" th:each="err : ${#fields.errors('id')}"
+								th:text="${err}"></div>
+						</div>
+						<div class="mb-3">
+							<label for="exampleInputPassword1" class="form-label text-uppercase">Category
+								Name</label> <input class="form-control" th:field="*{name}">
+								<div class="text-danger" th:each="err : ${#fields.errors('name')}"
+							th:text="${err}"></div>
+						</div>
+					</div>
+					<!-- action -->
+					<div class="form-group text-center">
+						<button th:formaction="@{/category/create}"
+							class="btn btn-primary" type="submit">Create</button>
+						<button th:formaction="@{/category/update}"
+							class="btn btn-primary" type="submit">Update</button>
+						<button th:formaction="@{/category/delete}"
+							class="btn btn-primary" type="submit">Delete</button>
+						<button th:formaction="@{/category/index}" class="btn btn-primary"
+							type="submit">Reset</button>
+					</div>
+				</form>
+				<br>
+
+				<div class="form-check in4-record">
+					<h5 class="text-uppercase"></h5>
+					<table class="table">
+						<thead>
+							<tr>
+								<th scope="col">Category ID</th>
+								<th scope="col">Category Name</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:each="var : ${CategoryItem}">
+								<th scope="row" th:text="${var.id}">1</th>
+								<td th:text="${var.name}"></td>
+								<td>
+									<form method="post">
+										<a th:href="@{'/category/edit/' + ${var.id}}"><i
+											class="fa fa-edit fa-2x"></i></a> <a
+											th:href="@{'/category/remove/' + ${var.id}}"><i
+											class="fa fa-trash fa-2x"></i></a>
+									</form>
+								</td>
+							</tr>
+
+
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

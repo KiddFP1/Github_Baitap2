@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<title>Insert title here</title>
+</head>
+<body>
+	<div class="container" style="margin-top: 10px;">
+		<div class="row">
+			<div class="col-sm-12">
+				<h2 class="text-center">Sorting by <span th:text="${field}"></span></h2>
+				<br>
+				<table class="table">
+					<thead>
+						<tr>
+							<th><a href="/product/sort?field=id">ID</a></th>
+							<th><a href="/product/sort?field=name">Name</a></th>
+							<th><a href="/product/sort?field=price">Price</a></th>
+							<th><a href="/product/sort?field=createDate">Date</a></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="var: ${items}">
+							<th th:text="${var.id}"></th>
+							<td th:text="${var.name}"></td>
+							<td th:text="${var.price}"></td>
+							<td th:text="${#dates.format(var.createDate, 'dd-MM-yyyy')}">
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

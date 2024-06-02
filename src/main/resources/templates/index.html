@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<title>Insert title here</title>
+<style>
+body {
+	background-image:
+		url("https://dep.anh9.com/imgs/131119hinh-nen-hoa-tiet-phong-nen-mau-den-danh-cho-website.jpg");
+	color: white;
+}
+</style>
+<title>Insert title here</title>
+</head>
+<body>
+<h2 class="text-center">LAB 5 </h2>
+	<nav class="navbar navbar-light bg-light"  style="display: flex; justify-content: center;">
+		
+		<form class="container-fluid justify-content-start">
+			<a th:href="@{/category/index}" class="btn btn-success " type="button">Category</a>
+			<a th:href="@{/product/sort}" class="btn btn-info" type="button">Sort</a>
+			<a th:href="@{/product/page}" class="btn btn-danger" type="button">Page</a>
+		</form>
+	</nav>
+</body>
+</html>
