@@ -34,4 +34,8 @@ public class ShoppingCartService {
 		}
 		return cart;
 	}
+
+	public void clearCart(HttpSession session) {
+		session.removeAttribute("cart");
+	}
 }
